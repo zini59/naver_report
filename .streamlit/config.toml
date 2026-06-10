@@ -1,13 +1,19 @@
-# Streamlit Cloud 배포용 (선택)
-# https://share.streamlit.io → New app → Main file: app.py
-
 [server]
 headless = true
 enableCORS = false
 enableXsrfProtection = true
+maxUploadSize = 200
 
 [browser]
 gatherUsageStats = false
+
+[theme]
+base = "light"
+primaryColor = "#1F4E79"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F4F7FA"
+textColor = "#1A1A1A"
+font = "sans serif"
 
 [global]
 developmentMode = false
