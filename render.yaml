@@ -1,0 +1,16 @@
+# Render.com 웹 배포 설정
+# https://render.com 에서 New > Blueprint > 이 repo 연결
+
+services:
+  - type: web
+    name: naver-ad-report
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true --browser.gatherUsageStats=false
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      # Render 대시보드에서 직접 설정하세요 (예: siwol2024)
+      - key: APP_PASSWORD
+        sync: false

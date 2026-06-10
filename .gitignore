@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+build/
+dist/
+*.spec.bak
+error.log
+.env
+.streamlit/secrets.toml
+
+# 업로드·저장 데이터 (서버에서 새로 쌓임)
+data/reports/**
+data/reports.db
+!data/reports/.gitkeep

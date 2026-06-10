@@ -1,0 +1,56 @@
+========================================
+ 네이버 광고 리포트 — URL(웹) 배포 방법
+========================================
+
+EXE 설치형이 아니라, 브라우저 주소(URL)로 접속하는 방식입니다.
+팀원에게 URL만 공유하면 됩니다.
+
+■ 추천: Render.com (무료 URL 제공)
+----------------------------------
+1. GitHub 계정 준비
+2. 이 프로젝트 폴더를 GitHub 저장소에 업로드
+   (venv, dist 폴더는 올리지 마세요 — .gitignore에 포함됨)
+
+3. https://render.com 가입 (GitHub 연동)
+
+4. Dashboard → New → Blueprint
+   → 방금 만든 GitHub repo 선택
+   → render.yaml 자동 인식 → Apply
+
+5. 배포 완료 후 URL 예시:
+   https://naver-ad-report.onrender.com
+
+6. (중요) Render 대시보드 → Environment
+   → APP_PASSWORD = 원하는 비밀번호 입력 → Save
+   (광고 데이터 보호용 — 꼭 설정하세요)
+
+7. 팀원에게 URL + 비밀번호 공유
+
+※ 무료 플랜: 15분 미사용 시 sleep → 첫 접속 30초~1분 대기 가능
+※ 커스텀 도메인(report.회사.com): Render 유료 플랜에서 연결
+
+
+■ 대안: Streamlit Cloud (더 간단, GitHub 필수)
+----------------------------------
+1. GitHub에 코드 업로드
+2. https://share.streamlit.io → New app
+3. Main file: app.py / Branch: main
+4. Advanced settings → Secrets:
+   APP_PASSWORD = "비밀번호"
+5. URL 예시: https://naver-ad-report-xxxxx.streamlit.app
+
+
+■ 로컬 테스트 (개발용)
+----------------------------------
+실행.bat 더블클릭 → 검은 창이 떠 있는 상태에서
+브라우저에 http://localhost:8501 입력
+
+※ 창을 닫으면 서버 종료 → 페이지 안 열림 (정상)
+※ EXE(네이버광고리포트.exe)는 웹배포 대신 쓰지 않아도 됩니다
+
+
+■ 저장 데이터 (전월 대비)
+----------------------------------
+웹 서버에 "업체·월별 저장"하면 서버 디스크에 보관됩니다.
+무료 호스팅은 재배포/재시작 시 저장 데이터가 사라질 수 있습니다.
+운영 시 Render 유료 디스크 또는 정기 백업을 권장합니다.
